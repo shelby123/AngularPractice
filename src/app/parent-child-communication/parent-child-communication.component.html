@@ -1,0 +1,13 @@
+<h4>This is the parent component</h4>
+<div class="input-group-sm mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Input some data!</span>
+  </div>
+  <textarea [(ngModel)]="parentTextAreaKey" class="form-control" aria-label="With textarea"></textarea>
+</div>
+<p>
+  Parent input interpolation:  {{parentTextAreaKey}}
+</p>
+<app-child [childInputStringDataBind]='parentTextAreaKey'
+  
+></app-child>
