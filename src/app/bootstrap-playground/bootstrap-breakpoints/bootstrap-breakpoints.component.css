@@ -1,0 +1,25 @@
+p {
+    background: #4286f4
+}
+
+@media (min-width: 576px) {
+    p {
+        background: #852b9b
+    }
+}
+@media (min-width: 768px)  { 
+    p {
+        background: #63d86b
+    }
+}
+@media (min-width: 992px) { 
+    p {
+        background: #ce6f62
+    }
+
+ }
+ @media (min-width: 1200px) { 
+    p {
+        background: #f44395
+    }
+ }

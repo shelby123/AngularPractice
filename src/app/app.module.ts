@@ -6,24 +6,22 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { ParentChildCommunicationComponent } from './parent-child-communication/parent-child-communication.component';
-import { ChildComponent } from './parent-child-communication/child/child.component';
+import { ParentChildCommunicationModule } from './parent-child-communication/parent-child-communication.module';
+import { BootstrapPlaygroundModule } from './bootstrap-playground/bootstrap-playground.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ParentChildCommunicationComponent,
-    ChildComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     RouterModule.forRoot( [
-      {path:'parentChild', component: ParentChildCommunicationComponent},
       {path:'', component: AppComponent}
-    
-    ])
+    ]),
+    ParentChildCommunicationModule,
+    BootstrapPlaygroundModule
   ],
   providers: [],
   bootstrap: [AppComponent]

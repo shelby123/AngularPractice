@@ -10,9 +10,9 @@ export class ParentChildCommunicationComponent implements OnInit, AfterViewInit 
 
   parentTextAreaKey:String="hello";
 
-  childMessageString:String;
+  childMessageString:String="";
 
-  childChangingMessage:String;
+  childChangingMessage:String="";
 
   @ViewChild(ChildComponent) childComponent:ChildComponent;
 
