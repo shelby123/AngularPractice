@@ -7,13 +7,19 @@ import { AppRoutingModule } from '../app-routing.module';
 import { BootstrapColorComponent } from './bootstrap-color/bootstrap-color.component';
 import { BootstrapJumbotronComponent } from './bootstrap-jumbotron/bootstrap-jumbotron.component';
 import { BootstrapBreakpointsComponent } from './bootstrap-breakpoints/bootstrap-breakpoints.component';
+import { BootstrapBordersComponent } from './bootstrap-borders/bootstrap-borders.component';
+import { BootstrapSpacingComponent } from './bootstrap-spacing/bootstrap-spacing.component';
+import { BootstrapFormsComponent } from './bootstrap-forms/bootstrap-forms.component';
 
 @NgModule({
   declarations: [
     BootstrapPlaygroundComponent, 
     BootstrapColorComponent, 
     BootstrapJumbotronComponent, 
-    BootstrapBreakpointsComponent
+    BootstrapBreakpointsComponent, 
+    BootstrapBordersComponent, 
+    BootstrapSpacingComponent, 
+    BootstrapFormsComponent
   ],
   imports: [
     CommonModule,
@@ -27,6 +33,9 @@ import { BootstrapBreakpointsComponent } from './bootstrap-breakpoints/bootstrap
           {path:"colors", component:BootstrapColorComponent},
           {path:"jumbotron", component:BootstrapJumbotronComponent},
           {path:"breakpoint", component:BootstrapBreakpointsComponent},
+          {path:"borders", component:BootstrapBordersComponent},
+          {path:"spacing", component:BootstrapSpacingComponent},
+          {path:"forms", component:BootstrapFormsComponent},
         ]
       }
     ])

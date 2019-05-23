@@ -1,25 +1,25 @@
-p {
+#colorMe {
     background: #4286f4
 }
 
 @media (min-width: 576px) {
-    p {
+    #colorMe {
         background: #852b9b
     }
 }
 @media (min-width: 768px)  { 
-    p {
+    #colorMe {
         background: #63d86b
     }
 }
 @media (min-width: 992px) { 
-    p {
+    #colorMe {
         background: #ce6f62
     }
 
  }
  @media (min-width: 1200px) { 
-    p {
+    #colorMe {
         background: #f44395
     }
  }

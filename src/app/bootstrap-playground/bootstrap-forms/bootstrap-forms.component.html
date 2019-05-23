@@ -1,0 +1,123 @@
+<div class="container">
+  <form action="">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" class="form-control" placeholder="Enter your email">
+    </div>
+    <div class="form-group">
+      <label for="email">Email (read only)</label>
+      <input readonly type="email" id="email" class="form-control" placeholder="Enter your email">
+    </div>
+    <div class="form-group">
+      <label for="emailsmall">Email (small) </label>
+      <input type="email" id="emailsmall" class="form-control form-control-sm" placeholder="Enter your email">
+    </div>
+    <div class="form-group">
+      <label for="emaillarge">Email (large) </label>
+      <input type="email" id="emaillarge" class="form-control form-control-lg" placeholder="Enter your email">
+    </div>
+    <div class="form-group bg-light">
+      <label for="password">Password</label>
+      <input type="password" id="password" class="form-control" placeholder="Enter your password">
+      <small class="text-muted">Password must be 8 characters and have a number and special character</small>
+    </div>
+    <div class="form-group">
+      <label for="select">Make a selection</label>
+      <select name="select" id="select" class="form-control">
+        <option>option A</option>
+        <option>option B</option>
+        <option>option C</option>
+        <option>option D</option>
+        <option>option E</option>
+      </select>
+
+    </div>
+    <div class="form-group">
+      <label for="multiselect">Make multiple selections</label>
+      <select multiple name="multiselect" id="multiselect" class="form-control">
+        <option>option A</option>
+        <option>option B</option>
+        <option>option C</option>
+        <option>option D</option>
+        <option>option E</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <input type="file" name="fileSelect" id="fileSelect" class="form-control-file">
+    </div>
+    <input type="button" value="Submit" class="btn btn-info border-dark">
+    <h3 class="display-3">Checkbox and radio buttons</h3>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="option1">
+      <label class="form-check-label" for="option1">option 1</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox"  id="option2">
+      <label class="form-check-label" for="option2">option 2</label>
+    </div>
+    <div class="form-check">
+      <input  disabled class="form-check-input" type="checkbox" id="option3">
+      <label class="form-check-label" for="option3">option 3</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="option4">
+      <label class="form-check-label" for="option4">option 4</label>
+    </div>
+
+    <h3 class="display-5">radio buttons: "name" attribute must match</h3>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="radioSelection" id="option1">
+      <label class="form-check-label" for="option1">option 1</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="radioSelection"  id="option2">
+      <label class="form-check-label" for="option2">option 2</label>
+    </div>
+    <div class="form-check">
+      <input  disabled class="form-check-input" type="radio" name="radioSelection" id="option3">
+      <label class="form-check-label" for="option3">option 3</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="radioSelection" id="option4">
+      <label class="form-check-label" for="option4">option 4</label>
+    </div>
+    <h3 class="display-5">Inline radio buttons: "name" attribute must match</h3>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="radioSelection" id="option1">
+      <label class="form-check-label" for="option1">option 1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="radioSelection"  id="option2">
+      <label class="form-check-label" for="option2">option 2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input  disabled class="form-check-input" type="radio" name="radioSelection" id="option3">
+      <label class="form-check-label" for="option3">option 3</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="radioSelection" id="option4">
+      <label class="form-check-label" for="option4">option 4</label>
+    </div>
+
+    <p class="display-3">Custom controls</p>
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="" id="regularcheckbox">
+        <label class="form-check-label" for="regularcheckbox">regular checkbox</label>
+      </div> 
+      <div class="custom-control custom-checkbox">
+        <input class="custom-control-input" type="checkbox" name="" id="customcheckbox">
+        <label class="custom-control-label" for="customcheckbox">custom checkbox</label>
+      </div>  
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="customRadio" id="radio1">
+        <label class="form-check-label" for="radio1">normal radio button</label>
+      </div>
+    <div class="custom-control custom-radio">
+      <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+      <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
+    </div>
+    
+  </form>
+</div>
