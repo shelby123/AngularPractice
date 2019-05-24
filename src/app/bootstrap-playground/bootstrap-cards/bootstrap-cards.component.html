@@ -1,0 +1,375 @@
+<div class="container">
+  <h2>Clickable cards...</h2>
+  <div class="row">
+    <div class="col-4">
+      <div class="{{padding}} {{selectedCard}}">
+        <div (click)="cardClicked()" class="card" id="#cupcakeCard">
+          <img
+            src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+            alt="" class="card-img-top"  >
+          <div class="card-body">
+            <h4 class="card-title">cupcakes</h4>
+            <p class="card-text">I love cupcakes</p>
+            <button class="btn {{buttonStyle}}">Select <i *ngIf="selected" class="fas fa-check"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2>List groups</h2>
+  <div class="row">
+    <div class="col">
+      <ul class="list-group">
+        <li class="list-group-item">normal thing</li>
+        <li class="list-group-item active ">active thing</li>
+        <li class="list-group-item disabled">disabled thing</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="list-group">
+        <button class="list-group-item list-group-item-action"> Click me </button>
+        <button class="list-group-item list-group-item-action active"> Clicked </button>
+        <button class="list-group-item list-group-item-action"> Click me </button>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="row my-3">
+    <div class="col ">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">normal thing</li>
+        <li class="list-group-item">normal thing</li>
+        <li class="list-group-item">normal thing</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="list-group">
+        <button class="list-group-item list-group-item-action list-group-item-primary d-flex justify-content-center">
+          Click me </button>
+        <button class="list-group-item list-group-item-action list-group-item-info"> info </button>
+        <button class="list-group-item list-group-item-action list-group-item-warning"> !warning! </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="container mb-5">
+  <h2>Cards</h2>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">Hello, I'm a simple card</div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h4>Hello, world</h4>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, expedita dolorem. Ullam magni aliquid voluptate
+          doloremque dolor adipisci ex dolorem?
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-around">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Hello, world</h4>
+          <h5 class="card-subtitle text-muted mb-2">subtitle</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur nesciunt alias
+            explicabo minima! Numquam recusandae, quaerat sit dolor distinctio commodi.</p>
+          <a href="" class="card-link">Link</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <div class="card-header">list-group of items</div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Hello world</li>
+          <li class="list-group-item">Hello world</li>
+          <li class="list-group-item">Hello world</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Monster Card</h4>
+          <h6 class="card-subtitle text-muted">Let's make one</h6>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur veritatis facere unde
+            laboriosam molestias nulla aut velit, quod nostrum cumque ratione voluptas ab fuga vel!</p>
+          <a href="" class="card-link">Info</a>
+          <a href="" class="card-link"> hello </a>
+          <button class="btn btn-outline-dark">Submit</button>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item bg-info d-flex justify-content-center">list group item 1 </li>
+          <li class="list-group-item bg-warning d-flex justify-content-center">remember to put us in a list group</li>
+          <li class="list-group-item bg-danger d-flex justify-content-center">and tag the list with list-group-flush
+          </li>
+        </ul>
+        <div class="card-body text-center">
+          <h4 class="card-title">Second body!!</h4>
+          <h6 class="card-subtitle text-muted">Content is centered</h6>
+          <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia illo explicabo iusto
+            asperiores tempore voluptatibus.</p>
+        </div>
+        <div class="card-footer">end of card</div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card border-success">
+        <div class="card-body">
+          <h4 class="card-title">Lorem, ipsum.</h4>
+          <h6 class="card-subtitle text-muted">Lorem ipsum dolor sit.</h6>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, iure!</p>
+        </div>
+        <div class="card-body justify-content-end">
+          <button class="btn btn-outline-success">submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card text-white bg-success">
+        <div class="card-body">
+          <h4 class="card-title">Lorem, ipsum.</h4>
+          <h6 class="card-subtitle text-muted">Lorem ipsum dolor sit.</h6>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, iure!</p>
+        </div>
+        <div class="card-body justify-content-end">
+          <button class="btn btn-outline-success">submit</button>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Lorem, ipsum.</h4>
+          <h6 class="card-subtitle text-muted">Lorem ipsum dolor sit.</h6>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, iure!</p>
+        </div>
+        <div class="card-body justify-content-end">
+          <button class="btn btn-outline-success">submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h1>cards with images</h1>
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-6">
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1554291499-563a504e0734?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+          alt="" class="card-img-top">
+        <div class="card-body">
+          <p class="card-text">Isn't this a lovely mountain?</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Ice Cream</h5>
+          <p class="card-text">YummyYummyYummyYummyYummy</p>
+        </div>
+        <img
+          src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+          alt="" class="card-img-bottom">
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1506619216599-9d16d0903dfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1498&q=80"
+          alt="" class="card-img">
+        <div class="card-img-overlay">
+          <h2 class="card-title">Coffee</h2>
+          <h4 class="card-subtitle text-muted">The perfect addiction</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h3>Card groups and decks</h3>
+<div class="container mb-5">
+  <div class="card-group">
+    <div class="card">
+      <img
+        src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+        alt="" class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title">cupcakes</h4>
+        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae et voluptate facere sunt
+          modi debitis magnam vel? Quas alias odit architecto expedita, minima recusandae consequuntur accusantium
+          beatae cum commodi placeat.</p>
+      </div>
+      <div class="card-footer">
+        <h5>desserts</h5>
+      </div>
+    </div>
+    <div class="card">
+      <img
+        src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+        alt="" class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title">cupcakes</h4>
+        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae et voluptate facere sunt
+          modi debitis magnam vel? Quas alias odit architecto expedita, minima recusandae consequuntur accusantium
+          beatae cum commodi placeat.</p>
+      </div>
+      <div class="card-footer">
+        <h5>desserts</h5>
+      </div>
+    </div>
+    <div class="card">
+      <img
+        src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+        alt="" class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title">cupcakes</h4>
+        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae et voluptate facere sunt
+          modi debitis magnam vel? Quas alias odit architecto expedita, minima recusandae consequuntur accusantium
+          beatae cum commodi placeat.</p>
+      </div>
+      <div class="card-footer">
+        <h5>desserts</h5>
+      </div>
+    </div>
+  </div>
+  <div class="card-deck">
+    <div class="card">
+      <img
+        src="https://images.unsplash.com/photo-1519869491916-8ca6f615d6bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"
+        alt="" class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title">cupcakes</h4>
+        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae et voluptate facere sunt
+          modi debitis magnam vel? Quas alias odit architecto expedita, minima recusandae consequuntur accusantium
+          beatae cum commodi placeat.</p>
+      </div>
+      <div class="card-footer">
+        <h5>desserts</h5>
+      </div>
+    </div>
+    <div class="card">
+      <img
+        src="https://images.unsplash.com/photo-1519869491916-8ca6f615d6bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"
+        alt="" class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title">cupcakes</h4>
+        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae et voluptate facere sunt
+          modi debitis magnam vel? Quas alias odit architecto expedita, minima recusandae consequuntur accusantium
+          beatae cum commodi placeat.</p>
+      </div>
+      <div class="card-footer">
+        <h5>desserts</h5>
+      </div>
+    </div>
+    <div class="card">
+      <img
+        src="https://images.unsplash.com/photo-1519869491916-8ca6f615d6bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"
+        alt="" class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title">cupcakes</h4>
+        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae et voluptate facere sunt
+          modi debitis magnam vel? Quas alias odit architecto expedita, minima recusandae consequuntur accusantium
+          beatae cum commodi placeat.</p>
+      </div>
+      <div class="card-footer">
+        <h5>desserts</h5>
+      </div>
+    </div>
+  </div>
+
+  <h3>card columns</h3>
+
+  <div class="card-columns">
+    <div class="card">
+      <img
+        src="https://images.unsplash.com/photo-1551106652-a5bcf4b29ab6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=802&q=80"
+        alt="" class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title">Donuts</h4>
+        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae et voluptate facere sunt
+          modi debitis magnam vel? Quas alias odit architecto expedita, minima recusandae consequuntur accusantium
+          beatae cum commodi placeat.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img
+        src="https://images.unsplash.com/photo-1548848221-0c2e497ed557?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80"
+        alt="" class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title">macarons</h4>
+        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae et voluptate facere sunt
+          modi debitis magnam vel? Quas alias odit architecto expedita, minima recusandae consequuntur accusantium
+          beatae cum commodi placeat.</p>
+      </div>
+      <div class="card-footer">
+        <h5>desserts</h5>
+      </div>
+    </div>
+    <div class="card">
+      <img
+        src="https://images.unsplash.com/photo-1532117364815-720cd35ff6e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        alt="" class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title">candy</h4>
+        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae et voluptate facere sunt
+          modi debitis magnam vel? Quas alias odit architecto expedita, minima recusandae consequuntur accusantium
+          beatae cum commodi placeat.</p>
+      </div>
+      <ul class="list-group-flush">
+        <li class="list-group-item">Flavors: </li>
+        <li class="list-group-item text-muted ">blueberry</li>
+        <li class="list-group-item text-muted">Strawberry</li>
+      </ul>
+      <div class="card-footer">
+        <h5>desserts</h5>
+      </div>
+    </div>
+    <div class="card">
+      <img
+        src="https://images.unsplash.com/photo-1519687079572-8a59631f3685?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+        alt="" class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title">Jelly beans</h4>
+        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae et voluptate facere sunt
+          modi debitis magnam vel? Quas alias odit architecto expedita, minima recusandae consequuntur accusantium
+          beatae cum commodi placeat.</p>
+      </div>
+      <ul class="list-group-flush">
+        <li class="list-group-item">Flavors: </li>
+        <li class="list-group-item text-muted ">blueberry</li>
+        <li class="list-group-item text-muted">Strawberry</li>
+      </ul>
+      <div class="card-footer">
+        <h5>desserts</h5>
+      </div>
+    </div>
+    <div class="card">
+      <img
+        src="https://images.unsplash.com/photo-1505394033641-40c6ad1178d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1106&q=80"
+        alt="" class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title">Ice Cream</h4>
+        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae et voluptate facere sunt
+          modi debitis magnam vel? Quas alias odit architecto expedita, minima recusandae consequuntur accusantium
+          beatae cum commodi placeat.</p>
+      </div>
+    </div>
+  </div>
+
+</div>

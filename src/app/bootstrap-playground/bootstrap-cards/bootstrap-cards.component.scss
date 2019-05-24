@@ -1,0 +1,23 @@
+.imageStyle { 
+    -webkit-filter: grayscale(50%); 
+    filter: grayscale(50%);
+}
+.selectedCard {
+    background:rgb(203, 229, 245)
+}
+
+.selected {
+    div {
+        img {
+            -webkit-filter: grayscale(50%); 
+            filter: grayscale(50%);
+        };
+        div {
+            background:rgb(203, 229, 245);
+            h4 { 
+                color:rgb(155, 47, 177)
+            }
+        }
+    }
+
+}
