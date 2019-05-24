@@ -12,12 +12,27 @@
             -webkit-filter: grayscale(50%); 
             filter: grayscale(50%);
         };
-        div {
-            background:rgb(203, 229, 245);
+        #cardBody {
+            background:#75A7A1;
             h4 { 
-                color:rgb(155, 47, 177)
+                color:#173340
             }
         }
     }
+}
 
+.unselected {
+    div {
+        img {
+        };
+        #cardBody {
+            background: #D4D9B0;
+            h4 { 
+                color:#396E73 
+            }
+        }
+    }
+}
+.fa-check-circle {
+    color: #173340
 }

@@ -9,10 +9,9 @@ export class BootstrapCardsComponent implements OnInit {
 
   cardClickCount:number = 0
 
-  buttonStyle:String="btn-dark"
   padding:String=""
   imageStyleClass:String=""
-  selectedCard:String=""
+  selectedCard:String="unselected"
 
   selected:boolean = false;
 
@@ -27,15 +26,11 @@ export class BootstrapCardsComponent implements OnInit {
     this.cardClickCount++;
     this.selected = !this.selected;
     if(this.selected){
-      this.buttonStyle = "btn-outline-dark"
       this.padding = "p-2"
-      this.imageStyleClass = "imageStyle"
       this.selectedCard = "selected"
     } else {
-      this.buttonStyle = "btn-dark"
       this.padding = ""
-      this.imageStyleClass = ""
-      this.selectedCard = ""
+      this.selectedCard = "unselected"
     }
   }
 
