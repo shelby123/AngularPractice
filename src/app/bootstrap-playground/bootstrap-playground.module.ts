@@ -10,6 +10,10 @@ import { BootstrapBreakpointsComponent } from './bootstrap-breakpoints/bootstrap
 import { BootstrapBordersComponent } from './bootstrap-borders/bootstrap-borders.component';
 import { BootstrapSpacingComponent } from './bootstrap-spacing/bootstrap-spacing.component';
 import { BootstrapFormsComponent } from './bootstrap-forms/bootstrap-forms.component';
+import { BootstrapInputGroupsComponent } from './bootstrap-input-groups/bootstrap-input-groups.component';
+import { BootstrapNavbarComponent } from './bootstrap-navbar/bootstrap-navbar.component';
+import { BootstrapFlexComponent } from './bootstrap-flex/bootstrap-flex.component';
+import { BootstrapGridComponent } from './bootstrap-grid/bootstrap-grid.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { BootstrapFormsComponent } from './bootstrap-forms/bootstrap-forms.compo
     BootstrapBreakpointsComponent, 
     BootstrapBordersComponent, 
     BootstrapSpacingComponent, 
-    BootstrapFormsComponent
+    BootstrapFormsComponent, 
+    BootstrapInputGroupsComponent, 
+    BootstrapNavbarComponent, 
+    BootstrapFlexComponent, 
+    BootstrapGridComponent
   ],
   imports: [
     CommonModule,
@@ -36,6 +44,10 @@ import { BootstrapFormsComponent } from './bootstrap-forms/bootstrap-forms.compo
           {path:"borders", component:BootstrapBordersComponent},
           {path:"spacing", component:BootstrapSpacingComponent},
           {path:"forms", component:BootstrapFormsComponent},
+          {path:"inputGroups", component:BootstrapInputGroupsComponent},
+          {path:"navs", component:BootstrapNavbarComponent},
+          {path:"flex", component:BootstrapFlexComponent},
+          {path:"grid", component:BootstrapGridComponent},
         ]
       }
     ])
