@@ -14,6 +14,9 @@ export class PathParamComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get("id")
+    this.route.paramMap.subscribe(params =>{
+      this.id = params.get("id")
+    })
   }
 
 }

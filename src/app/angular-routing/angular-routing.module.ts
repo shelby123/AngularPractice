@@ -23,7 +23,6 @@ import { PathParamComponent } from './path-param/path-param.component';
               {path:":id", component: PathParamComponent}
             ]
         },
-        // {path:"landing/:id", component: PathParamComponent},
         {path:"", redirectTo:"landing", pathMatch:"full"}
       ]
     }
