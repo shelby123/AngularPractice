@@ -15,6 +15,7 @@ import { BootstrapNavbarComponent } from './bootstrap-navbar/bootstrap-navbar.co
 import { BootstrapFlexComponent } from './bootstrap-flex/bootstrap-flex.component';
 import { BootstrapGridComponent } from './bootstrap-grid/bootstrap-grid.component';
 import { BootstrapCardsComponent } from './bootstrap-cards/bootstrap-cards.component';
+import { SampleHomePageComponent } from './sample-home-page/sample-home-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { BootstrapCardsComponent } from './bootstrap-cards/bootstrap-cards.compo
     BootstrapNavbarComponent, 
     BootstrapFlexComponent, 
     BootstrapGridComponent, 
-    BootstrapCardsComponent
+    BootstrapCardsComponent, 
+    SampleHomePageComponent
   ],
   imports: [
     CommonModule,
@@ -51,6 +53,7 @@ import { BootstrapCardsComponent } from './bootstrap-cards/bootstrap-cards.compo
           {path:"flex", component:BootstrapFlexComponent},
           {path:"grid", component:BootstrapGridComponent},
           {path:"cards", component:BootstrapCardsComponent},
+          {path:"home", component:SampleHomePageComponent}
         ]
       }
     ])

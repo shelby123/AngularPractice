@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { ParentChildCommunicationModule } from './parent-child-communication/parent-child-communication.module';
 import { BootstrapPlaygroundModule } from './bootstrap-playground/bootstrap-playground.module';
+import { AngularRoutingModule } from './angular-routing/angular-routing.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BootstrapPlaygroundModule } from './bootstrap-playground/bootstrap-play
       {path:'', component: AppComponent}
     ]),
     ParentChildCommunicationModule,
-    BootstrapPlaygroundModule
+    BootstrapPlaygroundModule,
+    AngularRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
