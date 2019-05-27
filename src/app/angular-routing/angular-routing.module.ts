@@ -20,7 +20,7 @@ import { PathParamComponent } from './path-param/path-param.component';
             path:"landing", 
             component: LandingComponentComponent,
             children: [
-              {path:":id", component: PathParamComponent}
+              {path:":id", component: PathParamComponent},
             ]
         },
         {path:"", redirectTo:"landing", pathMatch:"full"}

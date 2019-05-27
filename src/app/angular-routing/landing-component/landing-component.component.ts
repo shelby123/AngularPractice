@@ -10,6 +10,9 @@ import { FormControl } from '@angular/forms';
 export class LandingComponentComponent implements OnInit {
 
   pathParamValue = new FormControl('');
+  queryParamValue = new FormControl('');
+
+  queryParameters: String[] = [];
 
   constructor(private router: Router) { }
 
@@ -19,10 +22,15 @@ export class LandingComponentComponent implements OnInit {
     console.log(this.router.routerState.snapshot.url)
   }
 
-  changeRoute() {
-    // this.router.navigate(["/routing", this.pathParamValue.value])
-    // this.pathParamValue.reset();
 
+
+  addValToQueryParameters(item:String) {
+    this.queryParameters = this.queryParameters.concat(item);
+    this.queryParamValue.reset();
+    console.log(this.queryParameters)
   }
 
+  removeItem(itemToRemove: String) {
+    console.log(itemToRemove)
+  }
 }
