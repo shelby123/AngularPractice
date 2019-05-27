@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row my-5">
+    <div class="col-4">
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+          class="card-img-top">
+        <div class="card-body"> 
+          <form action="" [formGroup]="exampleForm">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Enter a title" formControlName="title">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Enter a description" formControlName="description">
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="repeatPinCheckbox"
+                      formControlName="repeatBoolean"
+                      >
+                    <label class="form-check-label" for="repeatPinCheckbox">
+                      Repeat
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="# Repeats" formControlName="numberRepeat"
+                      >
+                  </div>
+                </div>
+              </div>
+              <div class="row" *ngIf="exampleForm.get('repeatBoolean').value && 
+                                      !exampleForm.get('numberRepeat').valid">
+                <div class="col d-flex justify-content-end text-danger">Please enter a number</div>
+              </div>
+            </div>
+<!-- 
+            <div class="d-flex justify-content-end">
+              <button class="btn btn-outline-success" [disabled]="!exampleForm.valid">Click me!</button>
+
+            </div> -->
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-4">
+      <div class="h5">Form is: </div>
+      <ul>
+        <li>Valid: {{exampleForm.valid}} </li>
+        <li>Dirty: {{exampleForm.dirty}}</li>
+        <li>Touched: {{exampleForm.touched}}</li>
+      </ul>
+      <div class="h5">Title is: </div>
+      <ul>
+        <li>Valid: {{exampleForm.get('title').valid}} </li>
+        <li>Dirty: {{exampleForm.get('title').dirty}}</li>
+        <li>Touched: {{exampleForm.get('title').touched}}</li>
+      </ul>
+      <h5># Repeats is: </h5>
+      <ul>
+          <li>Valid: {{exampleForm.get('numberRepeat').valid}} </li>
+          <li>Dirty: {{exampleForm.get('numberRepeat').dirty}}</li>
+          <li>Touched: {{exampleForm.get('numberRepeat').touched}}</li>
+        </ul>
+      <div class="h5">Values: </div>
+      <p>{{exampleForm.value}}</p>
+
+    </div>
+  </div>
+</div>

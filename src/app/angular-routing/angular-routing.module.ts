@@ -4,11 +4,13 @@ import { LandingComponentComponent } from './landing-component/landing-component
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PathParamComponent } from './path-param/path-param.component';
+import { FormsComponent } from './forms/forms.component';
 
 @NgModule({
   declarations: [
     LandingComponentComponent,
-    PathParamComponent
+    PathParamComponent,
+    FormsComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { PathParamComponent } from './path-param/path-param.component';
               {path:":id", component: PathParamComponent},
             ]
         },
-        {path:"", redirectTo:"landing", pathMatch:"full"}
+        {path:"", redirectTo:"landing", pathMatch:"full"},
+        {path:"forms", component:FormsComponent}
       ]
     }
     ])

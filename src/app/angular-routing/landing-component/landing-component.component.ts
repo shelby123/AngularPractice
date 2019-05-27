@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-landing-component',
@@ -9,7 +9,10 @@ import { FormControl } from '@angular/forms';
 })
 export class LandingComponentComponent implements OnInit {
 
-  pathParamValue = new FormControl('');
+  pathParamValue = new FormControl('', [
+    Validators.required,
+    Validators.pattern('[0-9]*')
+  ]);
   queryParamValue = new FormControl('');
 
   queryParameters: String[] = [];
