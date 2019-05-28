@@ -10,7 +10,7 @@ import { Model } from './data-model';
 export class FormsComponent implements OnInit {
 
   exampleForm : FormGroup
-  formArray : FormArray
+  formArray:FormGroup[] = []
   dataModel = new Model("Sample Title", "Sample description")
 
   descriptionControl =   new FormControl("", [
@@ -21,9 +21,7 @@ export class FormsComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.formArray = this.fb.array([
-      {cardData: this.buildFormGroup()}
-    ])
+   
 
     this.exampleForm = this.fb.group({
       title:["", [Validators.required ]],
@@ -32,23 +30,41 @@ export class FormsComponent implements OnInit {
       numberRepeat: {value:"", disabled:true}
     })
 
-    this.exampleForm.get("repeatBoolean").valueChanges.subscribe(value =>{
-      if(value) {
-        this.exampleForm.get("numberRepeat").enable()
-        this.exampleForm.get("numberR epeat").setValidators(Validators.required)
-      } else {
-        this.exampleForm.get("numberRepeat").disable()
-        this.exampleForm.get("numberRepeat").clearValidators();
-      }
-      this.exampleForm.get("numberRepeat").updateValueAndValidity()
-     
+    this.formArray = this.formArray.concat(this.buildFormGroup())
+    this.formArray = this.formArray.concat(this.buildFormGroup())
+
+    this.formArray.forEach(item => {
+      item.get("repeatBoolean").valueChanges.subscribe(value =>{
+        if(value) {
+          item.get("numberRepeat").enable()
+          item.get("numberRepeat").setValidators(Validators.required)
+        } else {
+          item.get("numberRepeat").disable()
+          item.get("numberRepeat").clearValidators();
+        }
+        item.get("numberRepeat").updateValueAndValidity()
+       
+      })
     })
 
-    this.exampleForm.patchValue({
-      "title": this.dataModel.getTitle(),
-      "description": this.dataModel.description,
-      
-    })
+    
+    // this.exampleForm.get("repeatBoolean").valueChanges.subscribe(value =>{
+    //   if(value) {
+    //     this.exampleForm.get("numberRepeat").enable()
+    //     this.exampleForm.get("numberR epeat").setValidators(Validators.required)
+    //   } else {
+    //     this.exampleForm.get("numberRepeat").disable()
+    //     this.exampleForm.get("numberRepeat").clearValidators();
+    //   }
+    //   this.exampleForm.get("numberRepeat").updateValueAndValidity()
+     
+    // })
+
+   
+  }
+
+  addPin() {
+    this.formArray = this.formArray.concat(this.buildFormGroup())
   }
 
   buildFormGroup():FormGroup {
