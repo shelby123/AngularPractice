@@ -2,10 +2,20 @@
   <div class="row my-5">
     <div class="col-4" *ngFor="let pinCard of formArray; let i=index">
       <div class="card">
+
         <img
           src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
           class="card-img-top">
-        <div class="card-body"> 
+        <!-- <div class="card-img-overlay p-2">
+          <div class="container">
+            <div class="row">
+              <div class="col d-flex justify-content-end">
+                  <button (click)="remove(i)" class="btn btn-danger"><i class="far fa-times-circle fa-md"></i></button>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <div class="card-body">
           <form action="" [formGroup]="formArray[i]">
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Enter a title" formControlName="title">
@@ -18,8 +28,7 @@
                 <div class="col">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="{{'repeatPinCheckbox' + i}}"
-                      formControlName="repeatBoolean"
-                      >
+                      formControlName="repeatBoolean">
                     <label class="form-check-label" for="{{'repeatPinCheckbox' + i}}">
                       Repeat
                     </label>
@@ -27,8 +36,7 @@
                 </div>
                 <div class="col">
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="# Repeats" formControlName="numberRepeat"
-                      >
+                    <input type="text" class="form-control" placeholder="# Repeats" formControlName="numberRepeat">
                   </div>
                 </div>
               </div>
@@ -37,11 +45,10 @@
                 <div class="col d-flex justify-content-end text-danger">Please enter a number</div>
               </div>
             </div>
-<!-- 
             <div class="d-flex justify-content-end">
-              <button class="btn btn-outline-success" [disabled]="!exampleForm.valid">Click me!</button>
+              <button (click)="remove(i)" class="btn btn-outline-danger">remove</button>
 
-            </div> -->
+            </div>
 
           </form>
         </div>
@@ -77,7 +84,7 @@
   <!-- button to add a new pin object -->
   <div class="row my-5">
     <div class="col">
-      <button (click)="addPin()" class="btn btn-success justify-content-between">
+      <button #addButton (click)="addPin()" class="btn btn-success justify-content-between">
         Add Pin
         <i class="fas fa-plus-circle"></i>
       </button>
