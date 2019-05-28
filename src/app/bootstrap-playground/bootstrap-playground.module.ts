@@ -16,6 +16,8 @@ import { BootstrapFlexComponent } from './bootstrap-flex/bootstrap-flex.componen
 import { BootstrapGridComponent } from './bootstrap-grid/bootstrap-grid.component';
 import { BootstrapCardsComponent } from './bootstrap-cards/bootstrap-cards.component';
 import { SampleHomePageComponent } from './sample-home-page/sample-home-page.component';
+import { AlertsComponent } from './javascript/alerts/alerts.component';
+import { DropdownsComponent } from './javascript/dropdowns/dropdowns.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { SampleHomePageComponent } from './sample-home-page/sample-home-page.com
     BootstrapFlexComponent, 
     BootstrapGridComponent, 
     BootstrapCardsComponent, 
-    SampleHomePageComponent
+    SampleHomePageComponent, 
+    AlertsComponent, 
+    DropdownsComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +57,9 @@ import { SampleHomePageComponent } from './sample-home-page/sample-home-page.com
           {path:"flex", component:BootstrapFlexComponent},
           {path:"grid", component:BootstrapGridComponent},
           {path:"cards", component:BootstrapCardsComponent},
-          {path:"home", component:SampleHomePageComponent}
+          {path:"home", component:SampleHomePageComponent},
+          {path:"alerts", component:AlertsComponent},
+          {path:"dropdowns", component:DropdownsComponent}
         ]
       }
     ])

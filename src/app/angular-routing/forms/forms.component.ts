@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { Model } from './data-model';
 
@@ -8,10 +8,12 @@ import { Model } from './data-model';
   styleUrls: ['./forms.component.scss']
 })
 export class FormsComponent implements OnInit {
-
+  
   exampleForm : FormGroup
   formArray:FormGroup[] = []
   dataModel = new Model("Sample Title", "Sample description")
+
+  @Input() imageUrl:String
 
   @ViewChild("addButton") addButton : ElementRef
 
@@ -21,6 +23,8 @@ export class FormsComponent implements OnInit {
 
 
   constructor(private fb: FormBuilder) { }
+
+  
 
   ngOnInit() {
    

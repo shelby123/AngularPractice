@@ -5,12 +5,14 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PathParamComponent } from './path-param/path-param.component';
 import { FormsComponent } from './forms/forms.component';
+import { FormHolderComponent } from './form-holder/form-holder.component';
 
 @NgModule({
   declarations: [
     LandingComponentComponent,
     PathParamComponent,
-    FormsComponent
+    FormsComponent,
+    FormHolderComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,7 @@ import { FormsComponent } from './forms/forms.component';
             ]
         },
         {path:"", redirectTo:"landing", pathMatch:"full"},
-        {path:"forms", component:FormsComponent}
+        {path:"forms", component:FormHolderComponent}
       ]
     }
     ])
