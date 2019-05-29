@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import { ParentChildCommunicationModule } from './parent-child-communication/parent-child-communication.module';
 import { BootstrapPlaygroundModule } from './bootstrap-playground/bootstrap-playground.module';
 import { AngularRoutingModule } from './angular-routing/angular-routing.module';
+import { MaterialModule } from './shared/material.module';
+import { AngularMaterialModule } from './angular-material/angular-material.module';
 
 @NgModule({
   declarations: [
@@ -18,12 +20,14 @@ import { AngularRoutingModule } from './angular-routing/angular-routing.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MaterialModule,
+    AngularMaterialModule,
     RouterModule.forRoot( [
       {path:'', component: AppComponent}
     ]),
     ParentChildCommunicationModule,
     BootstrapPlaygroundModule,
-    AngularRoutingModule
+    AngularRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

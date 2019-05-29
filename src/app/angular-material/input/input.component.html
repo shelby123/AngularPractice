@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <form action="" class="form-group" [formGroup]="myGroup">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col">
+            <mat-form-field>
+              <input type="text" 
+                  placeholder="Enter some text" 
+                  aria-label="Number" 
+                  matInput 
+                  [formControl]="myGroup.get('text')" 
+                  >
+            </mat-form-field>
+          </div>
+
+          <div class="col">
+            <mat-form-field>
+              <input type="email" 
+                  placeholder="Enter your email" 
+                  aria-label="Number" 
+                  matInput 
+                  [formControl]="myGroup.get('email')" 
+                  >
+            </mat-form-field>
+          </div>
+
+
+          <div class="col">
+            <mat-form-field>
+              <input type="color" 
+                  placeholder="select a color" 
+                  aria-label="Number" 
+                  matInput 
+                  [formControl]="myGroup.get('color')" 
+                  >
+            </mat-form-field>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col">
+            <mat-form-field>
+              <input type="text"
+                  placeholder="Enter your Name"
+                  matInput
+                  [formControl]="myGroup.get('name')"
+              >
+              <mat-error *ngIf="myGroup.get('name').hasError('required')">Please enter a name</mat-error>
+            </mat-form-field>
+          </div>
+
+        </div>
+
+
+      </div>
+    </form>
+  </div>
+</div>
