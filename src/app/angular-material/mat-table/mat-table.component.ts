@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Pin } from './PinModel';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-mat-table',
@@ -16,6 +16,8 @@ export class MatTableComponent implements OnInit, AfterViewInit {
 
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+
 
   constructor() { }
 
@@ -30,6 +32,7 @@ export class MatTableComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
 }
