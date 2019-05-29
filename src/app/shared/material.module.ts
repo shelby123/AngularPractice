@@ -6,6 +6,7 @@ import {
   MatAutocompleteModule, 
   MatFormFieldModule,
   MatInputModule,
+  MatTableModule
 } from '@angular/material'
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
@@ -16,7 +17,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule,
-    BrowserAnimationsModule 
+    BrowserAnimationsModule,
+    MatTableModule
   ],
   exports: [
     MatButtonModule,
@@ -24,7 +26,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule
   ]
 })
 export class MaterialModule { }

@@ -8,12 +8,14 @@ import { MaterialModule } from '../shared/material.module';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputComponent } from './input/input.component';
+import { MatTableComponent } from './mat-table/mat-table.component';
 
 @NgModule({
   declarations: [
     LandingComponent, 
     AutocompleteComponent, 
-    InputComponent
+    InputComponent, 
+    MatTableComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { InputComponent } from './input/input.component';
         component: LandingComponent,
         children: [
           {path:"autocomplete", component:AutocompleteComponent},
-          {path:"input", component:InputComponent}
+          {path:"input", component:InputComponent},
+          {path:"table", component:MatTableComponent}
         ]
       }
     ])
