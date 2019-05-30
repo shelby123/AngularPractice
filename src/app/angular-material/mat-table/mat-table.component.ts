@@ -3,6 +3,8 @@ import { Pin } from './PinModel';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { EtsyPost } from './EtsyModel';
+import { ApiServiceService } from './api-service.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-mat-table',
@@ -11,7 +13,7 @@ import { EtsyPost } from './EtsyModel';
 })
 export class MatTableComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['select', 'imageUrl', 'id',  'datePosted'];
+  displayedColumns: string[] = ['select', 'imageUrl', 'id',  'title'];
   elements: EtsyPost[] = []
   dataSource: MatTableDataSource<EtsyPost>;
 
@@ -23,13 +25,15 @@ export class MatTableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort: MatSort;
 
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-
-    for (var i = 0; i < 3; i++) {
-      this.elements.push({ id:"" + i, imageUrl: "https://images.unsplash.com/photo-1553349450-06122450f171?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=666&q=80", datePosted: new Date()})
-    }
+    this.elements = this.route.snapshot.data['etsyResolver']
+    
+    // console.log("here");
+    // for (var i = 0; i < 25; i++) {
+    //   this.elements.push({ id:"" + i, imageUrl: "https://images.unsplash.com/photo-1553349450-06122450f171?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=666&q=80", title: "temp"})
+    // }
 
     this.dataSource = new MatTableDataSource<EtsyPost>(this.elements);
 

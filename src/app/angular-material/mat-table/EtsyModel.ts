@@ -1,5 +1,5 @@
 export interface EtsyPost {
-    id:String;
+    listingId:String;
     imageUrl:String;
-    datePosted:Date
+    title:String;
 }
