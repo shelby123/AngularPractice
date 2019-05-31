@@ -7,7 +7,7 @@ import { EtsyPost } from './EtsyModel';
 })
 export class ApiServiceService {
 
-  url: string = "assets/etsyListings.json";
+  url: string = "https://smp-backend-service.herokuapp.com/etsy/listings";
 
   constructor(private http: HttpClient) { }
 

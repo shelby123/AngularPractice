@@ -8,7 +8,8 @@ import {
   MatInputModule,
   MatTableModule,
   MatPaginatorModule,
-  MatSortModule
+  MatSortModule,
+  MatSlideToggleModule
 } from '@angular/material'
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
@@ -22,7 +23,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatSlideToggleModule
   ],
   exports: [
     MatButtonModule,
@@ -33,7 +35,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatSlideToggleModule
   ]
 })
 export class MaterialModule { }

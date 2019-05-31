@@ -1,0 +1,11 @@
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col-3">
+      <button [routerLink]="['/routing', 'guard-target']" class="btn btn-success" >Route to target!</button>
+    </div>
+    <div class="col-3">
+        <mat-slide-toggle [formControl]="canActivateControl"> Can Activate</mat-slide-toggle>
+    </div>
+  </div>
+</div>
