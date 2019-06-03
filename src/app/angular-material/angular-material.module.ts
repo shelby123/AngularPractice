@@ -11,13 +11,18 @@ import { InputComponent } from './input/input.component';
 import { MatTableComponent } from './mat-table/mat-table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableResolver } from './mat-table/mat-table.resolver';
+import { AngularCalendarComponent } from './angular-calendar/angular-calendar.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
+
 
 @NgModule({
   declarations: [
     LandingComponent, 
     AutocompleteComponent, 
     InputComponent, 
-    MatTableComponent
+    MatTableComponent, AngularCalendarComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +31,10 @@ import { MatTableResolver } from './mat-table/mat-table.resolver';
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    }),
     RouterModule.forChild([
       {
         path:"material", 
@@ -33,7 +42,8 @@ import { MatTableResolver } from './mat-table/mat-table.resolver';
         children: [
           {path:"autocomplete", component:AutocompleteComponent},
           {path:"input", component:InputComponent},
-          {path:"table", component:MatTableComponent, resolve: {etsyResolver: MatTableResolver}}
+          {path:"table", component:MatTableComponent, resolve: {etsyResolver: MatTableResolver}},
+          {path:"calendar", component:AngularCalendarComponent}
         ]
       }
     ])

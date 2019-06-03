@@ -18,6 +18,7 @@ import { BootstrapCardsComponent } from './bootstrap-cards/bootstrap-cards.compo
 import { SampleHomePageComponent } from './sample-home-page/sample-home-page.component';
 import { AlertsComponent } from './javascript/alerts/alerts.component';
 import { DropdownsComponent } from './javascript/dropdowns/dropdowns.component';
+import { BootstrapSidenavComponent } from './bootstrap-sidenav/bootstrap-sidenav.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { DropdownsComponent } from './javascript/dropdowns/dropdowns.component';
     BootstrapCardsComponent, 
     SampleHomePageComponent, 
     AlertsComponent, 
-    DropdownsComponent
+    DropdownsComponent, 
+    BootstrapSidenavComponent
   ],
   imports: [
     CommonModule,
@@ -59,7 +61,8 @@ import { DropdownsComponent } from './javascript/dropdowns/dropdowns.component';
           {path:"cards", component:BootstrapCardsComponent},
           {path:"home", component:SampleHomePageComponent},
           {path:"alerts", component:AlertsComponent},
-          {path:"dropdowns", component:DropdownsComponent}
+          {path:"dropdowns", component:DropdownsComponent},
+          {path:"sidenav", component:BootstrapSidenavComponent},
         ]
       }
     ])
