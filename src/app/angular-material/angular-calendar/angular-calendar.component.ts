@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarEvent } from 'angular-calendar';
+import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 export const colors: any = {
   red: {
     primary: '#ad2121',
@@ -26,8 +27,7 @@ export class AngularCalendarComponent implements OnInit {
 
   viewDate: Date = new Date();
 
-
-  
+  toggleBoardDisplay:FormGroup;
 
   events: CalendarEvent[] = [
     {
@@ -64,8 +64,28 @@ export class AngularCalendarComponent implements OnInit {
     }
   ];
 
+  constructor(private fb: FormBuilder) {
+  }
+
+  boardNames:string[] = ["sweets", "charms", "Desserts"];
+
+  get boards():FormArray {
+    return this.toggleBoardDisplay.get("boards") as FormArray;
+  }
+
   ngOnInit(): void {
-  
+    this.toggleBoardDisplay = this.fb.group({
+      boards: this.fb.array([])
+    })
+    let boardArray = this.toggleBoardDisplay.get("boards") as FormArray
+    this.boardNames.forEach(val=> {
+      const boardGroup = this.fb.group({
+        name: false
+      })
+      boardArray.push(boardGroup)
+    })
+    console.log(this.toggleBoardDisplay.get("boards"))
+
   }
 
 }

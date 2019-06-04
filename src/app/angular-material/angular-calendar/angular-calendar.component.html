@@ -1,5 +1,29 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-2">
+      <button class="btn btn-success btn-block">
+        Add Timeslot
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      <form [formGroup]="toggleBoardDisplay">
+        <div formArrayName="boards">
+            <div *ngFor="let board of boards.controls; let i=index" 
+            [formGroupName]="i">
+              <mat-checkbox  color="primary" formControlName="name">{{boardNames[i]}}</mat-checkbox>
+            </div>
 
-  <mwl-calendar-week-view
-    [viewDate]="viewDate"
-    [events]="events"
-  >
+        </div>
+        
+      </form>
+    </div>
+
+
+    <div class="col-10">
+      <mwl-calendar-week-view [viewDate]="viewDate" [events]="events"></mwl-calendar-week-view>
+    </div>
+  </div>
+
+</div>
