@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarEvent } from 'angular-calendar';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { CreateTimeslotComponent } from './create-timeslot/create-timeslot.component';
 export const colors: any = {
   red: {
     primary: '#ad2121',
@@ -22,12 +24,12 @@ export const colors: any = {
   styleUrls: ['./angular-calendar.component.scss']
 })
 export class AngularCalendarComponent implements OnInit {
-  
+
   view: string = 'week';
 
   viewDate: Date = new Date();
 
-  toggleBoardDisplay:FormGroup;
+  toggleBoardDisplay: FormGroup;
 
   events: CalendarEvent[] = [
     {
@@ -64,12 +66,12 @@ export class AngularCalendarComponent implements OnInit {
     }
   ];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private dialog:MatDialog) {
   }
 
-  boardNames:string[] = ["sweets", "charms", "Desserts"];
+  boardNames: string[] = ["sweets", "charms", "Desserts"];
 
-  get boards():FormArray {
+  get boards(): FormArray {
     return this.toggleBoardDisplay.get("boards") as FormArray;
   }
 
@@ -78,7 +80,7 @@ export class AngularCalendarComponent implements OnInit {
       boards: this.fb.array([])
     })
     let boardArray = this.toggleBoardDisplay.get("boards") as FormArray
-    this.boardNames.forEach(val=> {
+    this.boardNames.forEach(val => {
       const boardGroup = this.fb.group({
         name: false
       })
@@ -86,6 +88,30 @@ export class AngularCalendarComponent implements OnInit {
     })
     console.log(this.toggleBoardDisplay.get("boards"))
 
+  }
+
+  openDialog() {
+
+    const dialogConfig = new MatDialogConfig();
+
+    // dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {boards: this.boardNames}
+
+    let dialogRef = this.dialog.open(CreateTimeslotComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      this.addEvent(result);
+    });
+  }
+
+  addEvent(result) {
+    this.events.push({
+      title: 'Event for board ' + result,
+      color: colors.red,
+      start: new Date('2019-06-04T03:00:00')
+    })
   }
 
 }

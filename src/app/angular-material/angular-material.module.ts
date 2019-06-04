@@ -14,6 +14,7 @@ import { MatTableResolver } from './mat-table/mat-table.resolver';
 import { AngularCalendarComponent } from './angular-calendar/angular-calendar.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CreateTimeslotComponent } from './angular-calendar/create-timeslot/create-timeslot.component';
 
 
 
@@ -22,7 +23,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     LandingComponent, 
     AutocompleteComponent, 
     InputComponent, 
-    MatTableComponent, AngularCalendarComponent
+    MatTableComponent, AngularCalendarComponent, CreateTimeslotComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +32,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MaterialModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
@@ -50,6 +52,9 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
   ],
   providers: [
     MatTableResolver
+  ],
+  entryComponents:[
+    CreateTimeslotComponent
   ]
 })
 export class AngularMaterialModule { }
