@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { EventServiceService } from '../event-service.service';
 import { Timeslot } from './timeslot';
@@ -32,7 +32,10 @@ export class CreateTimeslotComponent implements OnInit {
     this.boards = this.data.boards
     this.timeslotForm = this.fb.group({
       board:"",
-      weekday:""
+      weekday:"",
+      hour: ["3", [Validators.pattern("([1-9]|1[0-9]|2[0-3])"), Validators.required]],
+      minute:["00", [Validators.pattern("([0-9])"), Validators.required]],
+      amOrPm:""
     })
 
   }
@@ -42,12 +45,16 @@ export class CreateTimeslotComponent implements OnInit {
   }
 
   saveEvent() {
-    this.timeslot = {
-      board : this.timeslotForm.get("board").value,
-      date : new Date(),
-      weekday : this.timeslotForm.get("weekday").value
-    }
-    this.eventService.addTimeslot(this.timeslot)
-
+    console.log(this.timeslotForm.get('amOrPm').value)
+    this.timeslotForm.get('weekday').value.forEach(weekday => {
+      this.timeslot = {
+        board : this.timeslotForm.get("board").value,
+        date : new Date(),
+        weekday : weekday,
+        hour : +this.timeslotForm.get("hour").value,
+        minute : +this.timeslotForm.get("minute").value
+      }
+      this.eventService.addTimeslot(this.timeslot)
+    })
   }
 }

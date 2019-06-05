@@ -1,7 +1,10 @@
 <h3 mat-dialog-title>Create a Time Slot</h3>
 <mat-dialog-content [formGroup]="timeslotForm">
-  
-    <mat-form-field>
+  <div class="container">
+
+
+    <div class="row">
+      <mat-form-field style="width: 100%;">
         <mat-label>Pick a Board</mat-label>
         <mat-select formControlName="board">
           <mat-option *ngFor="let board of boards" [value]="board">
@@ -9,19 +12,65 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+    </div>
+
+
+    <div class="row">
+      <mat-form-field style="width: 100%;">
+        <mat-label>Select Days to Post</mat-label>
+        <mat-select formControlName="weekday" multiple>
+          <mat-option *ngFor="let day of keys" [value]="day">
+            {{day}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+    <div class="row">
       <mat-form-field>
-          <mat-label>Select Days to Post</mat-label>
-          <mat-select formControlName="weekday" multiple>
-            <mat-option *ngFor="let day of keys" [value]="day">
-              {{day}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
- 
+        <input matInput placeholder="hour" formControlName="hour" >
+        <mat-error *ngIf="timeslotForm.get('hour').hasError('pattern') 
+                          && !timeslotForm.get('hour').hasError('required') ">
+            Please enter a valid number from 0 to 23
+          </mat-error>
+        <mat-error *ngIf="timeslotForm.get('hour').hasError('required')">
+          Please enter an hour
+        </mat-error>
+      </mat-form-field>
+      :
+      <mat-form-field>
+        <input matInput placeholder="minute" formControlName="minute"  >
+        <mat-error *ngIf="timeslotForm.get('minute').hasError('pattern') 
+                          && !timeslotForm.get('minute').hasError('required') ">
+            Please enter a valid number from 0 to 59
+          </mat-error>
+        <mat-error *ngIf="timeslotForm.get('minute').hasError('required')">
+          Please enter a minute
+        </mat-error>
+      </mat-form-field>
+    
+    </div>
+    <div class="row">
+      <mat-form-field>
+        <mat-label>am or pm</mat-label>
+        <mat-select formControlName="amOrPm" [value]=am>
+          <mat-option>
+            am
+          </mat-option>
+          <mat-option>
+            pm
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+
 </mat-dialog-content>
 
 <mat-dialog-actions>
-    <button mat-button mat-dialog-close >close</button>
-    <button mat-button mat-dialog-close (click)="saveEvent()" cdkFocusInitial>Submit</button>
+  <button mat-button mat-dialog-close>close</button>
+  <button mat-button mat-dialog-close (click)="saveEvent()" cdkFocusInitial class="btn btn-primary">Submit</button>
 
 </mat-dialog-actions>

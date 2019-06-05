@@ -26,6 +26,7 @@ export class EventServiceService {
     } else {
       return this.timeslots
     }
-    
   }
+
+
 }
