@@ -38,6 +38,15 @@ export class AngularCalendarComponent implements OnInit {
 
   boardObjects:Board[]
 
+  get boardFilter() {
+    let map={}
+    this.boards.controls.forEach(control => {
+      map[control.get('name').value] =  control.get('checked').value
+    })
+    return map;
+  }
+
+
   get boards(): FormArray {
     return this.toggleBoardDisplay.get("boards") as FormArray;
   }

@@ -1,13 +1,9 @@
-<div class="container mt-4">
+<div class="container mt-4 fill-screen">
   <div class="row">
     <div class="col-2">
       <button (click)="openDialog()" class="btn btn-success btn-block">
         Add Timeslot
       </button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-2">
       <form [formGroup]="toggleBoardDisplay">
         <div formArrayName="boards">
             <div *ngFor="let board of boards.controls; let i=index" 
@@ -22,7 +18,8 @@
 
 
     <div class="col-10">
-      <mwl-calendar-week-view [viewDate]="viewDate" [events]="filteredEvents" [refresh]="refresh"></mwl-calendar-week-view>
+      <!-- <mwl-calendar-week-view [viewDate]="viewDate" [events]="filteredEvents" [refresh]="refresh"></mwl-calendar-week-view> -->
+      <app-calendar [calendarViewBoardList]="boardFilter"></app-calendar>
     </div>
   </div>
 

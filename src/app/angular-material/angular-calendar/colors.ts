@@ -12,7 +12,7 @@ export const colors: any = {
       secondary: '#FDF1BA'
     },
     cyan: {
-      primary: '#42f4e5',
-      secondary: '#2940aa'
+      primary: '#2940aa',
+      secondary: '#42f4e5'
     }
   };

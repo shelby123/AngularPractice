@@ -15,6 +15,7 @@ import { AngularCalendarComponent } from './angular-calendar/angular-calendar.co
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CreateTimeslotComponent } from './angular-calendar/create-timeslot/create-timeslot.component';
+import { CalendarComponent } from './angular-calendar/calendar/calendar.component';
 
 
 
@@ -23,7 +24,7 @@ import { CreateTimeslotComponent } from './angular-calendar/create-timeslot/crea
     LandingComponent, 
     AutocompleteComponent, 
     InputComponent, 
-    MatTableComponent, AngularCalendarComponent, CreateTimeslotComponent
+    MatTableComponent, AngularCalendarComponent, CreateTimeslotComponent, CalendarComponent
   ],
   imports: [
     CommonModule,

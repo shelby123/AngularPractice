@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col" *ngFor="let day of days; let i = index">
+      <div class="row border border-dark d-flex justify-content-center " [ngStyle]="{
+        'background': dayColors[i]
+      }">
+        {{day}}
+      </div>
+      <div class="row" *ngFor="let item of dayItems[i]">
+        <div class="card col text-center mt-1">
+          <div class="card-body p-1">
+              {{item}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{calendarViewBoardList['sweets']}}
