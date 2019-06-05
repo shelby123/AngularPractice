@@ -2,8 +2,12 @@ import { WeekDay } from '@angular/common';
 
 
 export interface Timeslot {
-    board:string
-    date:Date
-    weekday:WeekDay
+    board: Board
+    date: Date
+    weekday: WeekDay
+}
 
+export interface Board {
+    name: string
+    color
 }

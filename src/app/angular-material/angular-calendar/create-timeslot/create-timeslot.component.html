@@ -9,11 +9,19 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+      <mat-form-field>
+          <mat-label>Select Days to Post</mat-label>
+          <mat-select formControlName="weekday" multiple>
+            <mat-option *ngFor="let day of keys" [value]="day">
+              {{day}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
  
 </mat-dialog-content>
 
 <mat-dialog-actions>
-    <button mat-button mat-dialog-close>close</button>
-    <button mat-button mat-dialog-close (click)="closeDialog()" cdkFocusInitial>Submit</button>
+    <button mat-button mat-dialog-close >close</button>
+    <button mat-button mat-dialog-close (click)="saveEvent()" cdkFocusInitial>Submit</button>
 
 </mat-dialog-actions>

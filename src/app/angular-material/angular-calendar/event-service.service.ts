@@ -17,11 +17,12 @@ export class EventServiceService {
   getTimeslots(boards?:string[]) {
     if(boards) {
       let filtered = []
-      this.timeslots.forEach(timeslot=>{
-        if(boards.indexOf(timeslot.board) >= 0 ) {
+      this.timeslots.forEach(timeslot=> {
+        if(boards.indexOf(timeslot.board.name) >= 0 ) {
           filtered.push(timeslot);
         }
       })
+      return filtered
     } else {
       return this.timeslots
     }
