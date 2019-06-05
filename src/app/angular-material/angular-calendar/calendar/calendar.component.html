@@ -6,14 +6,14 @@
       }">
         {{day}}
       </div>
-      <div class="row" *ngFor="let item of dayItems[i]">
+      <div class="row" *ngFor="let timeslot of dayItems[i].filteredTimeslots">
         <div class="card col text-center mt-1">
           <div class="card-body p-1">
-              {{item}}
+              {{timeslot.board.name}}
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-{{calendarViewBoardList['sweets']}}
+

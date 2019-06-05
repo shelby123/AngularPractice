@@ -4,7 +4,7 @@ import { WeekDay } from '@angular/common';
 export interface Timeslot {
     board: Board
     date: Date
-    weekday: WeekDay
+    weekday: string
     hour: number
     minute: number
 }

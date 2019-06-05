@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CalendarEvent } from 'angular-calendar';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material';
@@ -10,6 +10,7 @@ import { EventServiceService } from './event-service.service';
 import { colors } from './colors';
 import { addDaysWithExclusions } from 'angular-calendar/modules/common/util';
 import { WeekDay } from '@angular/common';
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 @Component({ 
@@ -22,6 +23,8 @@ export class AngularCalendarComponent implements OnInit {
   view: string = 'week';
   
   refresh: Subject<any> = new Subject();
+
+  @ViewChild(CalendarComponent) calendarComponent:CalendarComponent 
 
   viewDate: Date = new Date();
 
@@ -68,9 +71,9 @@ export class AngularCalendarComponent implements OnInit {
     })
     this.boards.valueChanges.subscribe(changes => {
       let boards:Board[] = changes.filter(x => x.checked)
-      this.updateEvents(this.eventService.getTimeslots(boards.map(val=>val.name)))
+      // this.updateEvents(this.eventService.getTimeslots(boards.map(val=>val.name)))
     })
-    this.updateEvents(this.eventService.getTimeslots())
+    // this.updateEvents(this.eventService.getTimeslots())
   }
 
   addDays(date:Date, days:number) {
@@ -101,13 +104,9 @@ export class AngularCalendarComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.data = {boards: this.boardObjects}
     let dialogRef = this.dialog.open(CreateTimeslotComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(result => {
-      this.closeDialog();
-    });
-  }
-
-  closeDialog() {
-    this.updateEvents(this.eventService.getTimeslots())
+    // dialogRef.afterClosed().subscribe(result => {
+    //   this.calendarComponent.addTimeSlot(result)
+    // });
   }
 
 }
