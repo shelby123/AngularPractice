@@ -12,7 +12,7 @@
         <div formArrayName="boards">
             <div *ngFor="let board of boards.controls; let i=index" 
             [formGroupName]="i">
-              <mat-checkbox  color="primary" formControlName="name">{{boardNames[i]}}</mat-checkbox>
+              <mat-checkbox  color="primary" formControlName="checked">{{board.get('name').value}}</mat-checkbox>
             </div>
 
         </div>
@@ -22,7 +22,7 @@
 
 
     <div class="col-10">
-      <mwl-calendar-week-view [viewDate]="viewDate" [events]="events"></mwl-calendar-week-view>
+      <mwl-calendar-week-view [viewDate]="viewDate" [events]="filteredEvents" [refresh]="refresh"></mwl-calendar-week-view>
     </div>
   </div>
 

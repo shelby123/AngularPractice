@@ -5,7 +5,7 @@
         <mat-label>Pick a Board</mat-label>
         <mat-select formControlName="board">
           <mat-option *ngFor="let board of boards" [value]="board">
-            {{board}}
+            {{board.name}}
           </mat-option>
         </mat-select>
       </mat-form-field>

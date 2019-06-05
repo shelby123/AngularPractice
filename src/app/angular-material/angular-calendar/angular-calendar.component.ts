@@ -3,6 +3,7 @@ import { CalendarEvent } from 'angular-calendar';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { CreateTimeslotComponent } from './create-timeslot/create-timeslot.component';
+import { Subject } from 'rxjs';
 export const colors: any = {
   red: {
     primary: '#ad2121',
@@ -15,6 +16,10 @@ export const colors: any = {
   yellow: {
     primary: '#e3bc08',
     secondary: '#FDF1BA'
+  },
+  cyan: {
+    primary: '#42f4e5',
+    secondary: '#2940aa'
   }
 };
 
@@ -26,50 +31,69 @@ export const colors: any = {
 export class AngularCalendarComponent implements OnInit {
 
   view: string = 'week';
+  
+  refresh: Subject<any> = new Subject();
 
   viewDate: Date = new Date();
 
   toggleBoardDisplay: FormGroup;
 
+  filteredEvents:CalendarEvent[] = []
+
   events: CalendarEvent[] = [
-    {
-      title: 'Editable event',
-      color: colors.yellow,
-      start: new Date(),
-      actions: [
-        {
-          label: '<i class="fa fa-fw fa-pencil"></i>',
-          onClick: ({ event }: { event: CalendarEvent }): void => {
-            console.log('Edit event', event);
-          }
-        }
-      ]
-    },
-    {
-      title: 'Deletable event',
-      color: colors.blue,
-      start: new Date(),
-      actions: [
-        {
-          label: '<i class="fa fa-fw fa-times"></i>',
-          onClick: ({ event }: { event: CalendarEvent }): void => {
-            this.events = this.events.filter(iEvent => iEvent !== event);
-            console.log('Event deleted', event);
-          }
-        }
-      ]
-    },
-    {
-      title: 'Non editable and deletable event',
-      color: colors.red,
-      start: new Date()
-    }
+    // {
+    //   title: 'Editable event',
+    //   color: colors.yellow,
+    //   start: new Date(),
+    //   actions: [
+    //     {
+    //       label: '<i class="fa fa-fw fa-pencil"></i>',
+    //       onClick: ({ event }: { event: CalendarEvent }): void => {
+    //         console.log('Edit event', event);
+    //       }
+    //     }
+    //   ]
+    // },
+    // {
+    //   title: 'Deletable event',
+    //   color: colors.blue,
+    //   start: new Date(),
+    //   actions: [
+    //     {
+    //       label: '<i class="fa fa-fw fa-times"></i>',
+    //       onClick: ({ event }: { event: CalendarEvent }): void => {
+    //         this.events = this.events.filter(iEvent => iEvent !== event);
+    //         console.log('Event deleted', event);
+    //       }
+    //     }
+    //   ]
+    // },
+    // {
+    //   title: 'Non editable and deletable event',
+    //   color: colors.red,
+    //   start: new Date(), 
+    // }
   ];
 
   constructor(private fb: FormBuilder, private dialog:MatDialog) {
   }
 
-  boardNames: string[] = ["sweets", "charms", "Desserts"];
+  boardObjects = [
+    { 
+      name: "sweets",
+      color: colors.cyan
+    },
+    {
+      name: "charms",
+      color: colors.blue
+    },
+    {
+      name: "Desserts", 
+      color: colors.red
+    }
+
+  ]
+
 
   get boards(): FormArray {
     return this.toggleBoardDisplay.get("boards") as FormArray;
@@ -80,14 +104,30 @@ export class AngularCalendarComponent implements OnInit {
       boards: this.fb.array([])
     })
     let boardArray = this.toggleBoardDisplay.get("boards") as FormArray
-    this.boardNames.forEach(val => {
+    this.boardObjects.forEach(val => {
       const boardGroup = this.fb.group({
-        name: false
+        checked: true, 
+        name: val.name
       })
       boardArray.push(boardGroup)
+      boardGroup.valueChanges.subscribe(changed=>{
+        this.filterEvents()
+      })
     })
+    this.filterEvents()
     console.log(this.toggleBoardDisplay.get("boards"))
+  }
 
+  filterEvents() {
+    let filter = {}
+    this.boards.controls.forEach(control => {
+      filter[control.get('name').value] = control.get('checked').value
+    })
+    console.log(filter)
+    this.filteredEvents = []
+    this.events.forEach(item=>{
+      this.filteredEvents.push(item);
+    })
   }
 
   openDialog() {
@@ -96,7 +136,7 @@ export class AngularCalendarComponent implements OnInit {
 
     // dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.data = {boards: this.boardNames}
+    dialogConfig.data = {boards: this.boardObjects}
 
     let dialogRef = this.dialog.open(CreateTimeslotComponent, dialogConfig);
 
@@ -106,12 +146,14 @@ export class AngularCalendarComponent implements OnInit {
     });
   }
 
-  addEvent(result) {
+  addEvent(board) {
     this.events.push({
-      title: 'Event for board ' + result,
-      color: colors.red,
+      title: board.name,
+      color: board.color,
       start: new Date('2019-06-04T03:00:00')
     })
+    this.filterEvents()
+    this.refresh.next()
   }
 
 }
