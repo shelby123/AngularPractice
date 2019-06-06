@@ -82,27 +82,27 @@ export class AngularCalendarComponent implements OnInit {
     return result;
   }
 
-  updateEvents(timeslots:Timeslot[]) {
-    this.filteredEvents = []
-    timeslots.forEach(timeslot => {
-      let newDate = new Date();
-      newDate.setHours(timeslot.hour)
-      newDate.setMinutes(timeslot.minute)
-      // convert week day enum to number and find days to add / subtract
-      let daysToAdd = (WeekDay[timeslot.weekday] as unknown as number) - newDate.getDay();
-      this.filteredEvents.push({
-        title: timeslot.board.name,
-        color: timeslot.board.color,
-        start: this.addDays(newDate, daysToAdd)
-      })
-    })
-    this.refresh.next()
-  }
+  // updateEvents(timeslots:Timeslot[]) {
+  //   this.filteredEvents = []
+  //   timeslots.forEach(timeslot => {
+  //     let newDate = new Date();
+  //     newDate.setHours(timeslot.hour)
+  //     newDate.setMinutes(timeslot.minute)
+  //     // convert week day enum to number and find days to add / subtract
+  //     let daysToAdd = (WeekDay[timeslot.weekday] as unknown as number) - newDate.getDay();
+  //     this.filteredEvents.push({
+  //       title: timeslot.board.name,
+  //       color: timeslot.board.color,
+  //       start: this.addDays(newDate, daysToAdd)
+  //     })
+  //   })
+  //   this.refresh.next()
+  // }
 
   openDialog() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
-    dialogConfig.data = {boards: this.boardObjects}
+    // dialogConfig.data = {boards: this.boardObjects}
     let dialogRef = this.dialog.open(CreateTimeslotComponent, dialogConfig);
     // dialogRef.afterClosed().subscribe(result => {
     //   this.calendarComponent.addTimeSlot(result)

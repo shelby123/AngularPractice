@@ -1,4 +1,9 @@
-<h3 mat-dialog-title>Create a Time Slot</h3>
+<h3 mat-dialog-title *ngIf="createNew; else showEditBlock">Create a Time Slot</h3>
+<ng-template #showEditBlock>
+    <h3 mat-dialog-title>Create a Time Slot</h3>
+</ng-template>
+
+
 <mat-dialog-content [formGroup]="timeslotForm">
   <div class="container">
 
@@ -16,7 +21,7 @@
 
 
     <div class="row">
-      <mat-form-field style="width: 100%;">
+      <mat-form-field style="width: 100%;" *ngIf="createNew; else selectSingleDayBlock">
         <mat-label>Select Days to Post</mat-label>
         <mat-select formControlName="weekday" multiple>
           <mat-option *ngFor="let day of keys" [value]="day">
@@ -24,6 +29,16 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+      <ng-template #selectSingleDayBlock>
+        <mat-form-field style="width: 100%;" >
+          <mat-label>Select Day to Post</mat-label>
+          <mat-select formControlName="weekday">
+            <mat-option *ngFor="let day of keys" [value]="day">
+              {{day}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </ng-template>
 
     </div>
 
@@ -51,19 +66,20 @@
       </mat-form-field>
     
     </div>
+    
     <div class="row">
-      <mat-form-field>
+      <mat-form-field style="width: 100%;">
         <mat-label>am or pm</mat-label>
         <mat-select formControlName="amOrPm">
-          <mat-option>
-            am
-          </mat-option>
-          <mat-option>
-            pm
-          </mat-option>
+          <mat-option value="am">am</mat-option>
+          <mat-option value="pm">pm</mat-option>
         </mat-select>
       </mat-form-field>
+
     </div>
+  
+
+
   </div>
 
 

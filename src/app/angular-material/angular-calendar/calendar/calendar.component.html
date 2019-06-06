@@ -1,19 +1,29 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col" *ngFor="let day of days; let i = index">
-      <div class="row border border-dark d-flex justify-content-center " [ngStyle]="{
+<div class="container-fluid bg-custom-filler">
+  <div class="row fill-screen">
+
+    <div class="col border border-dark " *ngFor="let day of days; let i = index">
+
+      <!-- Begin Titles -->
+      <div class="row border-bottom border-dark d-flex justify-content-center py-3" [ngStyle]="{
         'background': dayColors[i]
       }">
-        {{day}}
+        <b>{{day}}</b>
       </div>
-      <div class="row" *ngFor="let timeslot of dayItems[i].filteredTimeslots">
-        <div class="card col text-center mt-1">
+
+      <!-- Begin Items -->
+      <div class="row " *ngFor="let timeslot of dayItems[i].filteredTimeslots">
+        <div class="card col text-center mt-1" (click)="openDialog(timeslot)"
+            [ngStyle]="{
+              'background': timeslot.board.color
+            }">
           <div class="card-body p-1">
-              {{timeslot.board.name}}
+              {{timeslot.date.getTime() | date:'h:mm a'}} <em>{{timeslot.board.name}}</em>
           </div>
         </div>
       </div>
+
+
+      
     </div>
   </div>
 </div>
-

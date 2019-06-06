@@ -3,6 +3,8 @@ import { CalendarEvent } from 'calendar-utils';
 import { Timeslot } from '../create-timeslot/timeslot';
 import { EventServiceService } from '../event-service.service';
 import { WeekDay } from '@angular/common';
+import { MatDialogConfig, MatDialog } from '@angular/material';
+import { CreateTimeslotComponent } from '../create-timeslot/create-timeslot.component';
 
 @Component({
   selector: 'app-calendar',
@@ -31,7 +33,7 @@ export class CalendarComponent implements OnInit, AfterViewInit {
     this.updateFilteredTimeSlots()
   }
 
-  constructor(private eventService:EventServiceService) { }
+  constructor(private eventService:EventServiceService, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.eventService.getTimeslots().subscribe(timeslots =>{
@@ -46,6 +48,9 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   updateFilteredTimeSlots() {
     this.dayItems.forEach(day => {
       day.filteredTimeslots = []
+      day.timeslots.sort(function(a, b) {
+        return a.date < b.date ? -1 : a.date > b.date ? 1 : 0;
+      })
       day.timeslots.forEach(timeslot => {
         if(this._calendarViewBoardList[timeslot.board.name]) {
           day.filteredTimeslots.push(timeslot)
@@ -67,6 +72,13 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       })
     })
     this.updateFilteredTimeSlots()
+  }
+
+  openDialog(timeslot:Timeslot) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {timeslot: timeslot}
+    let dialogRef = this.dialog.open(CreateTimeslotComponent, dialogConfig);
   }
 
 }

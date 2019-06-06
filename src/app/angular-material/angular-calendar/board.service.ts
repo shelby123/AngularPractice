@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Board } from './create-timeslot/timeslot';
-import { colors } from './colors';
 
 @Injectable({
   providedIn: 'root'
@@ -10,15 +9,15 @@ export class BoardService {
   private _boards:Board[] = [
     { 
       name: "sweets",
-      color: colors.cyan
+      color: "#fffcb7"
     },
     {
       name: "charms",
-      color: colors.blue
+      color: "#b5fcc7"
     },
     {
       name: "Desserts", 
-      color: colors.red
+      color: "#deb5fc"
     }
 
   ]
