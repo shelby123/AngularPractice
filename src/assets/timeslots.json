@@ -1,0 +1,32 @@
+[
+    {
+        "board": {
+            "name": "charms",
+            "color": "#b5fcc7"
+        },
+        "date": "2019-06-06T20:00:08.060Z",
+        "weekday": "Monday",
+        "hour": 15,
+        "minute": 0
+    },
+    {
+        "board": {
+            "name": "charms",
+            "color": "#b5fcc7"
+        },
+        "date": "2019-06-06T20:00:08.060Z",
+        "weekday": "Wednesday",
+        "hour": 15,
+        "minute": 0
+    },
+    {
+        "board": {
+            "name": "charms",
+            "color": "#b5fcc7"
+        },
+        "date": "2019-06-06T20:00:08.060Z",
+        "weekday": "Thursday",
+        "hour": 15,
+        "minute": 0
+    }
+]

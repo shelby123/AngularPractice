@@ -16,6 +16,8 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CreateTimeslotComponent } from './angular-calendar/create-timeslot/create-timeslot.component';
 import { CalendarComponent } from './angular-calendar/calendar/calendar.component';
+import { CalendarResolverService } from './angular-calendar/calendar-resolver.service';
+import { EventServiceService } from './angular-calendar/event-service.service';
 
 
 
@@ -46,7 +48,7 @@ import { CalendarComponent } from './angular-calendar/calendar/calendar.componen
           {path:"autocomplete", component:AutocompleteComponent},
           {path:"input", component:InputComponent},
           {path:"table", component:MatTableComponent, resolve: {etsyResolver: MatTableResolver}},
-          {path:"calendar", component:AngularCalendarComponent}
+          {path:"calendar", component:AngularCalendarComponent, resolve: {calendarResolver: EventServiceService}}
         ]
       }
     ])

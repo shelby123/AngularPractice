@@ -5,6 +5,7 @@ import { EventServiceService } from '../event-service.service';
 import { WeekDay } from '@angular/common';
 import { MatDialogConfig, MatDialog } from '@angular/material';
 import { CreateTimeslotComponent } from '../create-timeslot/create-timeslot.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-calendar',
@@ -36,6 +37,8 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   constructor(private eventService:EventServiceService, private dialog: MatDialog) { }
 
   ngOnInit() {
+    this.updateTimeSlots(this.eventService.timeslots)
+    console.log(this.dayItems)
     this.eventService.getTimeslots().subscribe(timeslots =>{
       this.updateTimeSlots(timeslots);
     })
