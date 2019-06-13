@@ -21,12 +21,13 @@ import {
 } from '@okta/okta-angular';
 import { LoginComponent } from './okta/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { WelcomeInfoModule } from './welcome-info/welcome-info.module';
 
 const config = {
   issuer: 'https://dev-715740.okta.com/oauth2/default',
   redirectUri: 'http://localhost:4200/loginsuccess',
   clientId: ''
-}
+};
 
 @NgModule({
   declarations: [
@@ -41,8 +42,8 @@ const config = {
     AngularMaterialModule,
     BrowserAnimationsModule,
     RouterModule.forRoot( [
-      {path:'', component: AppComponent},
-      {path:"login", component: LoginComponent},
+      {path: '', redirectTo: 'home', pathMatch: 'full' },
+      {path: 'login', component: LoginComponent},
       {
         path: 'loginsuccess',
         component: OktaCallbackComponent
@@ -51,6 +52,7 @@ const config = {
     ParentChildCommunicationModule,
     BootstrapPlaygroundModule,
     AngularRoutingModule,
+    WelcomeInfoModule,
     OktaAuthModule.initAuth(config)
   ],
   providers: [],
